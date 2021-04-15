@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-background: #151921;
+    --bottom-toolbar-background: #282828; 
+}
+
+/* UTILIY STYLING */
+
+.round {
+    border-radius: 50%;
+}
+
+.cut-corners {
+    border-radius: 5px;
+}
+
+.white {
+    color: #fff;
+}
+
+.background-black {
+    background-color: black;
+}
+
+.grey {
+    color: #5f5f5f;
+}
+
+/* DEBUGGING */
+
+body {
+    background-color: blueviolet;
+}
+
+/* TOP LEVEL LAYOUT */
+
+body {
+    display: grid;
+    grid-template: 
+        "navigation header " 1fr
+        "navigation main " 6fr
+        "controls controls " 1fr /
+        1fr 6fr;
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: navigation;
+}
+
+main {
+    grid-area: main;
+}
+
+section {
+    grid-area: controls;
+}
+
+/* LEFT NAVIGATION SECTION */
+
+.spotify-icon {
+    fill: #fff;
+}
+
+.create-playlist-icon {
+    height: 24px;
+    width: 24px;
+    background-color: #999999;
+    position: relative;
+    display: inline-block;
+}
+
+.icon-svg {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+}
+
+nav li:hover {
+    color: #cccccc;
+}
+
+nav li:hover .create-playlist-icon {
+    background-color: #cccccc;
+}
+
+nav li, nav > * {
+    margin-bottom: 20px;
+}
