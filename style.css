@@ -6,7 +6,8 @@
 
 :root {
     --main-background: #151921;
-    --bottom-toolbar-background: #282828; 
+    --bottom-toolbar-background: #282828;
+    --header-background: #0d0f14d8; 
 }
 
 /* UTILIY STYLING */
@@ -17,6 +18,10 @@
 
 .cut-corners {
     border-radius: 5px;
+}
+
+.rounded-sides {
+    border-radius: 56px;
 }
 
 .white {
@@ -31,6 +36,14 @@
     color: #5f5f5f;
 }
 
+ul {
+    list-style: none;
+}
+
+.thumbnail {
+    width: 180px;
+}
+
 /* DEBUGGING */
 
 body {
@@ -42,22 +55,27 @@ body {
 body {
     display: grid;
     grid-template: 
-        "navigation header " 1fr
-        "navigation main " 6fr
-        "controls controls " 1fr /
-        1fr 6fr;
+        "navigation header " 10vh
+        "navigation main " 80vh
+        "controls controls " 10vh /
+        12vw 88vw;
+
+    height: 100vh;
+    width: 100vw;
 }
 
 header {
     grid-area: header;
 }
 
-nav {
+.navigation {
     grid-area: navigation;
+    overflow: scroll;
 }
 
 main {
     grid-area: main;
+    overflow: scroll;
 }
 
 section {
@@ -84,14 +102,56 @@ section {
     top: 6px;
 }
 
-nav li:hover {
+.navigation li:hover {
     color: #cccccc;
 }
 
-nav li:hover .create-playlist-icon {
+.navigation li:hover .create-playlist-icon {
     background-color: #cccccc;
 }
 
-nav li, nav > * {
+.navigation li, .navigation > * {
     margin-bottom: 20px;
+}
+
+/* HEADER SECTION */
+
+header {
+    position: sticky;
+    top: 0px;
+    background-color: var(--header-background);
+}
+
+header button {
+    background-color: var(--header-background);
+    position: absolute;
+    right: 25px;
+    top: 22px;
+    width: 140px;
+    height: 40px;
+    color: #cbcccd;
+    border: 2px solid #cbcccd
+}
+
+/* MAIN SECTION */
+
+main {
+    background-color: var(--main-background);
+}
+
+.main-content-navigation {
+    text-align: center;
+}
+
+.main-content-navigation li {
+    display: inline;
+    margin-right: 25px;
+}
+
+main section {
+    display: grid;
+    grid-auto-columns: 14rem;
+    grid-auto-flow: column;
+    /* overflow: scroll; */
+    text-align: center;
 }
