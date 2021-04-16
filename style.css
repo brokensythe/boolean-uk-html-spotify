@@ -44,6 +44,20 @@ ul {
     width: 180px;
 }
 
+.control-icons {
+    height: 4vh;
+}
+
+.expand {
+    width: 100%;
+}
+
+.center {
+    place-items: center;
+    display: grid;
+    grid-auto-flow: column;
+}
+
 /* DEBUGGING */
 
 body {
@@ -55,17 +69,12 @@ body {
 body {
     display: grid;
     grid-template: 
-        "navigation header " 10vh
-        "navigation main " 80vh
+        "navigation main " 90vh
         "controls controls " 10vh /
         12vw 88vw;
 
     height: 100vh;
     width: 100vw;
-}
-
-header {
-    grid-area: header;
 }
 
 .navigation {
@@ -78,7 +87,7 @@ main {
     overflow: scroll;
 }
 
-section {
+.controls {
     grid-area: controls;
 }
 
@@ -117,20 +126,22 @@ section {
 /* HEADER SECTION */
 
 header {
+    min-height: 10vh;
     position: sticky;
     top: 0px;
     background-color: var(--header-background);
+    display: grid;
+    align-items: center;
+    justify-items: right;
 }
 
 header button {
     background-color: var(--header-background);
-    position: absolute;
-    right: 25px;
-    top: 22px;
     width: 140px;
     height: 40px;
     color: #cbcccd;
-    border: 2px solid #cbcccd
+    border: 2px solid #cbcccd;
+    margin-right: 20px;
 }
 
 /* MAIN SECTION */
@@ -150,8 +161,60 @@ main {
 
 main section {
     display: grid;
-    grid-auto-columns: 14rem;
+    grid-auto-columns: 13.9rem;
     grid-auto-flow: column;
     /* overflow: scroll; */
     text-align: center;
+}
+
+/* CONTROLS SECTION */
+
+.controls {
+    display: grid;
+    grid-template-columns: 5% 10% 5% 60% 20%;
+}
+
+.small-thumbnail {
+    height: 9vh;
+}
+
+.user-interaction-icons {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.main-control-bar {
+    display: grid;
+    grid-auto-rows: 50%;
+}
+
+.play-button {
+    height: 5vh;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+}
+
+.main-control-bar .bottom {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 10% 80% 10%;
+    place-items: center;
+}
+
+.main-control-bar .top {
+    place-self: center;
+}
+
+.main-control-bar .top > * {
+    margin-right: 1rem;
+}
+
+.controls-right {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 40% 60%;
 }
